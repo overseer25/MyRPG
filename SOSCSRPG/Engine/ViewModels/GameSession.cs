@@ -18,11 +18,17 @@ namespace Engine.ViewModels
         public Player CurrentPlayer { get; set; }
 
         /// <summary>
+        /// Contains the current location the player is in.
+        /// </summary>
+        public Location CurrentLocation { get; set; }
+
+        /// <summary>
         /// Default constructor for a GameSession object.
         /// </summary>
         public GameSession()
         {
             CurrentPlayer = new Player();
+            CurrentLocation = new Location();
         }
     }
 }
