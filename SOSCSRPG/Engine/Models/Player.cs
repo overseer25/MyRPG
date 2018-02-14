@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,42 +11,61 @@ namespace Engine.Models
     /// Represents a player object. Players have a name, a class, hit points, 
     /// experience, current level, and gold count.
     /// </summary>
-    class Player
+    public class Player : INotifyPropertyChanged
     {
+        // private backing variables used by properties.
+        private int _experience, _hp, _level, _gold;
+
         /// <summary>
         /// The name of the player character.
         /// </summary>
-        string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The selected class of the character.
         /// </summary>
-        string CharacterClass { get; set; }
+        public string CharacterClass { get; set; }
 
         /// <summary>
         /// The amount of health the character has.
         /// </summary>
-        int HitPoints { get; set; }
+        public int HitPoints
+        {
+            get { return _hp; }
+            set {_hp = value; OnPropertyChanged("HitPoints"); }
+        }
 
         /// <summary>
         /// The amount of experience points the character has.
         /// </summary>
-        int ExperiencePoints { get; set; }
+        public int ExperiencePoints
+        {
+            get { return _experience; }
+            set { _experience = value; OnPropertyChanged("ExperiencePoints"); }
+        }
 
         /// <summary>
         /// The character's level.
         /// </summary>
-        int Level { get; set; }
+        public int Level
+        {
+            get { return _level; }
+            set { _level = value; OnPropertyChanged("Level"); }
+        }
 
         /// <summary>
         /// The amount of gold the character is carrying.
         /// </summary>
-        int Gold { get; set; }
+        public int Gold
+        {
+            get { return _gold; }
+            set { _gold = value; OnPropertyChanged("Gold"); }
+        }
 
         /// <summary>
         /// Default Constructor for a Player object. Calls the next constructor, and provides default parameters.
         /// </summary>
-        public Player() : this("Josh", "Fighter", 20, 0, 1, 1000) { }
+        public Player() : this("Josh", "Fighter", 20, 0, 1, 0) { }
 
 
         /// <summary>
@@ -67,5 +87,19 @@ namespace Engine.Models
             Level = level;
             Gold = gold;
         }
+
+        // Important event handle that informs any classes that rely on the Player data to update.
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Event used to update the UI, given a specified property to update.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
     }
 }

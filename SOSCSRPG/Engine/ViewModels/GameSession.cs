@@ -10,12 +10,12 @@ namespace Engine.ViewModels
     /// <summary>
     /// Manages the current game being played by the player. Contains a Player object.
     /// </summary>
-    class GameSession
+    public class GameSession
     {
         /// <summary>
         /// Contains the current player of the game session.
         /// </summary>
-        Player CurrentPlayer { get; set; }
+        public Player CurrentPlayer { get; set; }
 
         /// <summary>
         /// Default constructor for a GameSession object.
@@ -24,6 +24,5 @@ namespace Engine.ViewModels
         {
             CurrentPlayer = new Player();
         }
-
     }
 }
