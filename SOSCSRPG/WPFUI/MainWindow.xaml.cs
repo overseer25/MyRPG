@@ -33,9 +33,44 @@ namespace WPFUI
             DataContext = _session; // Tells the XAML file the data context. Important for displaying data to the screen (using Binding).
         }
 
-        private void Button_OnClick(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Event handler for clicking the north button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
-            _session.CurrentPlayer.ExperiencePoints += 10;
+
+        }
+
+        /// <summary>
+        /// Event handler for clicking the South button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Event handler for clicking the East button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnClick_MoveEast(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Event handler for clicking the West button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnClick_MoveWest(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
