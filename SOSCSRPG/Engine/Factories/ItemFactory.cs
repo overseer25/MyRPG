@@ -21,6 +21,7 @@ namespace Engine.Factories
         {
             _gameItems = new List<GameItem>();
 
+            // All the items in the game.
             _gameItems.Add(new Weapon(1001, "Blunt Stick", 1, 0, 1));
             _gameItems.Add(new Weapon(1002, "Broken Sword", 2, 1, 2));
         }

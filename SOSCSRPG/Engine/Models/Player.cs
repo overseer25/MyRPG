@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,11 @@ namespace Engine.Models
         }
 
         /// <summary>
+        /// Inventory of the player. An ObservableCollection will handle any notifications such as OnPropertyChanged.
+        /// </summary>
+        public ObservableCollection<GameItem> Inventory { get; set; }
+
+        /// <summary>
         /// Default Constructor for a Player object. Calls the next constructor, and provides default parameters.
         /// </summary>
         public Player() : this("Josh", "Fighter", 20, 0, 1, 0) { }
@@ -86,6 +92,7 @@ namespace Engine.Models
             ExperiencePoints = xp;
             Level = level;
             Gold = gold;
+            Inventory = new ObservableCollection<GameItem>();
         }
 
     }
