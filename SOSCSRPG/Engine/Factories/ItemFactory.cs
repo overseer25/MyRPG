@@ -26,6 +26,13 @@ namespace Engine.Factories
             _gameItems.Add(new Weapon(1002, "Broken Sword", 2, 1, 2));
             _gameItems.Add(new GameItem(9001, "Spider fang", 1));
             _gameItems.Add(new GameItem(9002, "Spider egg", 3));
+            _gameItems.Add(new GameItem(9004, "Feral dog leg", 2));
+            _gameItems.Add(new GameItem(9005, "Feral dog tooth", 1));
+            _gameItems.Add(new GameItem(9006, "Evil cat tooth", 1));
+            _gameItems.Add(new GameItem(9007, "Evil cat tail", 4));
+            _gameItems.Add(new GameItem(9008, "Bear tail", 6));
+            _gameItems.Add(new GameItem(9009, "Bear eye", 10));
+
         }
 
         /// <summary>
