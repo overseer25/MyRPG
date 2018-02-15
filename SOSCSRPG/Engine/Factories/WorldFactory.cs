@@ -20,9 +20,14 @@ namespace Engine.Factories
         {
             World newWorld = new World();
 
+            // Locations
             newWorld.AddLocation(0, 0, "Home", "Your starting location", "/Engine;component/Images/Locations/home.png");
             newWorld.AddLocation(1, 0, "Town", "The center of town", "/Engine;component/Images/Locations/town.png");
             newWorld.AddLocation(2, 0, "Shop", "Purchase things here", "/Engine;component/Images/Locations/shop.png");
+            newWorld.AddLocation(0, 1, "Spider Hill", "Home of the Spiders", "/Engine;component/Images/Locations/spider.png");
+
+            // Quests
+            newWorld.GetLocation(0, 1).LocationQuests.Add(QuestFactory.GetQuestByID(1));
 
             return newWorld;
         }

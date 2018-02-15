@@ -38,6 +38,11 @@ namespace Engine.Models
         public string ImageName { get; set; }
 
         /// <summary>
+        /// A list of all the quests that are in this location.
+        /// </summary>
+        public List<Quest> LocationQuests { get; set; }
+
+        /// <summary>
         /// Default constructor. Calls the next constructor, populating the data with default values.
         /// </summary>
         public Location() : this(0, 0, "Home", "Your starting location", "/Engine;component/Images/Locations/home.png") { }
@@ -59,6 +64,7 @@ namespace Engine.Models
             Name = name;
             Description = description;
             ImageName = imageURL;
+            LocationQuests = new List<Quest>();
         }
     }
 }

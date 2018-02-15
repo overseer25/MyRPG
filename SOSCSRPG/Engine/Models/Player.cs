@@ -69,6 +69,11 @@ namespace Engine.Models
         public ObservableCollection<GameItem> Inventory { get; set; }
 
         /// <summary>
+        /// Holds all quests the player is currently tracking.
+        /// </summary>
+        public ObservableCollection<QuestTracker> Quests { get; set; }
+
+        /// <summary>
         /// Default Constructor for a Player object. Calls the next constructor, and provides default parameters.
         /// </summary>
         public Player() : this("Josh", "Fighter", 20, 0, 1, 0) { }
@@ -93,6 +98,7 @@ namespace Engine.Models
             Level = level;
             Gold = gold;
             Inventory = new ObservableCollection<GameItem>();
+            Quests = new ObservableCollection<QuestTracker>();
         }
 
     }
