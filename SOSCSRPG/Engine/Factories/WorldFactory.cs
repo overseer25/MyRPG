@@ -10,13 +10,13 @@ namespace Engine.Factories
     /// <summary>
     /// Builds Worlds. This class is internal, meaning it can only be used by the Engine project.
     /// </summary>
-    internal class WorldFactory
+    internal static class WorldFactory
     {
         /// <summary>
         /// Function used to build a new World object.
         /// </summary>
         /// <returns></returns>
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World newWorld = new World();
 

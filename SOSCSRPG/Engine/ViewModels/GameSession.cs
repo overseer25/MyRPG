@@ -12,7 +12,7 @@ namespace Engine.ViewModels
     /// <summary>
     /// Manages the current game being played by the player. Contains a Player object.
     /// </summary>
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BaseNotification
     {
         // private backing variables used by properties.
         private Location _currentLocation;
@@ -30,11 +30,11 @@ namespace Engine.ViewModels
             get { return _currentLocation; }
             set {
                 _currentLocation = value;
-                OnPropertyChanged("CurrentLocation");
-                OnPropertyChanged("HasLocationNorth");
-                OnPropertyChanged("HasLocationSouth");
-                OnPropertyChanged("HasLocationEast");
-                OnPropertyChanged("HasLocationWest");
+                OnPropertyChanged(nameof(CurrentLocation));
+                OnPropertyChanged(nameof(HasLocationNorth));
+                OnPropertyChanged(nameof(HasLocationSouth));
+                OnPropertyChanged(nameof(HasLocationEast));
+                OnPropertyChanged(nameof(HasLocationWest));
             }
         }
 
@@ -81,24 +81,11 @@ namespace Engine.ViewModels
         public GameSession()
         {
             // Create the world
-            WorldFactory factory = new WorldFactory();
-            CurrentWorld = factory.CreateWorld();
+            CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentPlayer = new Player();
 
             CurrentLocation = CurrentWorld.GetLocation(0, 0);
-        }
-
-        // Important event handle that informs any classes that rely on the Player data to update.
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Event used to update the UI, given a specified property to update.
-        /// </summary>
-        /// <param name="propertyName"></param>
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -106,6 +93,7 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveNorth()
         {
+            if (!HasLocationNorth) { return; }
             CurrentLocation = CurrentWorld.GetLocation(CurrentLocation.X, CurrentLocation.Y + 1);
         }
 
@@ -114,6 +102,7 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveSouth()
         {
+            if (!HasLocationSouth) { return; }
             CurrentLocation = CurrentWorld.GetLocation(CurrentLocation.X, CurrentLocation.Y - 1);
         }
 
@@ -122,6 +111,7 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveEast()
         {
+            if (!HasLocationEast) { return; }
             CurrentLocation = CurrentWorld.GetLocation(CurrentLocation.X + 1, CurrentLocation.Y);
         }
 
@@ -130,6 +120,7 @@ namespace Engine.ViewModels
         /// </summary>
         public void MoveWest()
         {
+            if (!HasLocationWest) { return; }
             CurrentLocation = CurrentWorld.GetLocation(CurrentLocation.X - 1, CurrentLocation.Y);
         }
     }

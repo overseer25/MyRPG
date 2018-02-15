@@ -11,7 +11,7 @@ namespace Engine.Models
     /// Represents a player object. Players have a name, a class, hit points, 
     /// experience, current level, and gold count.
     /// </summary>
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotification
     {
         // private backing variables used by properties.
         private int _experience, _hp, _level, _gold;
@@ -32,7 +32,7 @@ namespace Engine.Models
         public int HitPoints
         {
             get { return _hp; }
-            set {_hp = value; OnPropertyChanged("HitPoints"); }
+            set {_hp = value; OnPropertyChanged(nameof(HitPoints)); }
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Engine.Models
         public int ExperiencePoints
         {
             get { return _experience; }
-            set { _experience = value; OnPropertyChanged("ExperiencePoints"); }
+            set { _experience = value; OnPropertyChanged(nameof(ExperiencePoints)); }
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Engine.Models
         public int Level
         {
             get { return _level; }
-            set { _level = value; OnPropertyChanged("Level"); }
+            set { _level = value; OnPropertyChanged(nameof(Level)); }
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Engine.Models
         public int Gold
         {
             get { return _gold; }
-            set { _gold = value; OnPropertyChanged("Gold"); }
+            set { _gold = value; OnPropertyChanged(nameof(Gold)); }
         }
 
         /// <summary>
@@ -87,19 +87,6 @@ namespace Engine.Models
             Level = level;
             Gold = gold;
         }
-
-        // Important event handle that informs any classes that rely on the Player data to update.
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Event used to update the UI, given a specified property to update.
-        /// </summary>
-        /// <param name="propertyName"></param>
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
 
     }
 }

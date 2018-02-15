@@ -20,3 +20,7 @@ This I learned:
 
 - WPF has a built in functionality called BooleanToVisibilityConverter, which can take a boolean value, and set 
 	the visibility of a form based on the value of the boolean.
+
+- "nameof" is a built in function that can get the name of a property. This is helpful because, when renaming a
+	property, it won't refactor a string variable containing the name of the property (ie. OnPropertyChanged("Property")). However, if
+	you use nameof, it will refactor, as it is not explicitly a string anymore (ie. OnPropertyChanged(nameof(Property))).
