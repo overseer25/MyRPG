@@ -24,3 +24,6 @@ This I learned:
 - "nameof" is a built in function that can get the name of a property. This is helpful because, when renaming a
 	property, it won't refactor a string variable containing the name of the property (ie. OnPropertyChanged("Property")). However, if
 	you use nameof, it will refactor, as it is not explicitly a string anymore (ie. OnPropertyChanged(nameof(Property))).
+
+- An ObservableCollection is a collection type for ModelView structures where any changes made to the collection will be updated in the
+	UI.

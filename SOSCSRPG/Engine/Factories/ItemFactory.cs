@@ -24,6 +24,8 @@ namespace Engine.Factories
             // All the items in the game.
             _gameItems.Add(new Weapon(1001, "Blunt Stick", 1, 0, 1));
             _gameItems.Add(new Weapon(1002, "Broken Sword", 2, 1, 2));
+            _gameItems.Add(new GameItem(9001, "Spider fang", 1));
+            _gameItems.Add(new GameItem(9002, "Spider egg", 3));
         }
 
         /// <summary>
