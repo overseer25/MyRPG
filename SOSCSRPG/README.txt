@@ -17,3 +17,6 @@ This I learned:
 	the view will listen for potential changes of the property values. In this case, the view is data bound to
 	the Player class. The Player class implements the INotifyPropertyChanged interface, so the view will listen
 	for changes made to specified properties.
+
+- WPF has a built in functionality called BooleanToVisibilityConverter, which can take a boolean value, and set 
+	the visibility of a form based on the value of the boolean.

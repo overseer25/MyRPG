@@ -40,7 +40,7 @@ namespace WPFUI
         /// <param name="e"></param>
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
-
+            _session.MoveNorth();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace WPFUI
         /// <param name="e"></param>
         private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
         {
-
+            _session.MoveSouth();
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace WPFUI
         /// <param name="e"></param>
         private void OnClick_MoveEast(object sender, RoutedEventArgs e)
         {
-
+            _session.MoveEast();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace WPFUI
         /// <param name="e"></param>
         private void OnClick_MoveWest(object sender, RoutedEventArgs e)
         {
-
+            _session.MoveWest();
         }
     }
 }
